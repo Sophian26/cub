@@ -67,10 +67,7 @@ char	*ft_strjoin(char *s1, char *s2)
 	char	*s3;
 
 	if (!s1)
-	{
-		 dprintf(1, "yes");
 		return (ft_strdup(s2));
-	}
 	if (!(s3 = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1))))
 		return (NULL);
 	i = 0;
@@ -85,7 +82,6 @@ char	*ft_strjoin(char *s1, char *s2)
 		s3[i] = s2[j];
 		j++;
 		i++;
-		dprintf(1, "%d here\n", i);
 	}
 	s3[i] = '\0';
 	free(s1);
