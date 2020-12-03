@@ -17,6 +17,6 @@ typedef struct s_file
     char *eastt;
     char *westt;
     char *sprite;
-    char *floor;
+    char *ground;
     char *sky;
 }               t_file;
