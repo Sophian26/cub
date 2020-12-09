@@ -25,7 +25,7 @@ void        ft_parsall(int fd, char **line, t_file *parsmap)
 
     error = 0;
     map = 0;
-    while ((map != 1) && (s = get_next_line(fd, line) != 0 || s == -1))
+    while ((map != 1) && ((s = get_next_line(fd, line)) != 0 || s == -1))
     {
         i = 0;
         test = 0;
@@ -35,7 +35,7 @@ void        ft_parsall(int fd, char **line, t_file *parsmap)
             {
                 if (parsmap->resolution[0] == '\0')
                 {
-                    while (s[i + 2] != '\0' || ft_isdigit(s[i + 2]) != 0)
+                    while (s[i + 2] != '\0' || (ft_isdigit(s[i + 2]) != 0))
                     {
                         parsmap->resolution[i] = s[i + 2];
                         i++;
@@ -146,14 +146,14 @@ void        ft_parsall(int fd, char **line, t_file *parsmap)
                 }
                 if (s[i] == '\n')
                 {
-                    parsmap->map[j] == 'l';
+                    parsmap->map[j] = 'l';
                     j++;
                     i++;
-                     while (s = get_next_line(fd) != 0 || s == -1)
+                     while ((s = get_next_line(fd, line)) != 0 || s == -1)
                     {
                         while (s[i] == ' ')
                         {
-                            parsmap->map[j] == ' ';
+                            parsmap->map[j] = ' ';
                             j++;
                             i++;
                         }
@@ -161,7 +161,7 @@ void        ft_parsall(int fd, char **line, t_file *parsmap)
                             error = 1;
                         else
                         {
-                            parsmap->map[j] == '1';
+                            parsmap->map[j] = '1';
                             j++;
                             i++;
                         }
@@ -169,7 +169,7 @@ void        ft_parsall(int fd, char **line, t_file *parsmap)
                         {
                             if (s[i] != ' ')
                             {
-                                parsmap->map[j] == s[i];
+                                parsmap->map[j] = s[i];
                                 j++;
                             }
                             i++;

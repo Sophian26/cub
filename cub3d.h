@@ -1,4 +1,4 @@
-# include "./minilibx_opengl_20191021/mlx.h"
+# include "./mlx/mlx.h"
 
 
 typedef struct s_file
