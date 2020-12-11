@@ -1,5 +1,5 @@
 # include "./mlx/mlx.h"
-
+# include "get_next_line.h"
 
 typedef struct s_file
 {
@@ -17,6 +17,9 @@ typedef struct s_file
     char *eastt;
     char *westt;
     char *sprite;
-    char *ground;
+    char *ground;   
     char *sky;
 }               t_file;
+
+int		    ft_isdigit(int c);
+void        ft_parsall(int fd, char *line, t_file *parsmap);

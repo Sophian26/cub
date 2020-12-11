@@ -14,6 +14,7 @@ t_file      *ft_initfile()
     file->playerx = 0;
     file->playery = 0;
     file->rotation = 0;
+    file->map = NULL;
     file->resolution = NULL;
     file->northt = NULL;
     file->southt = NULL;
@@ -23,6 +24,14 @@ t_file      *ft_initfile()
     file->ground = NULL;
     file->sky = NULL;
     return file;
+}
+
+int		ft_isdigit(int c)
+{
+	if (c >= '0' && c <= '9')
+		return (1);
+	else
+		return (0);
 }
 
 int        ft_raygen(t_file *file)
@@ -35,7 +44,7 @@ void        ft_usemlx(t_file *file)
 {
     mlx_new_window(file->mlx, 1000, 1000, "Cube4D");
     file->image = mlx_new_image(file->mlx, 1000, 1000);
-    file->window = mlx_loop_hook(file->mlx, ft_raygen, (void *)file);
+    mlx_loop_hook(file->mlx, ft_raygen, (void *)file);
     mlx_loop(file->mlx);
 }
 
@@ -60,7 +69,7 @@ int main()
 {
     int fd;
     char *map;
-    fd = open("./map", 'r');
+    fd = open("./map.cub", 'r');
     map = ft_parsing(fd);
     printf("%s", map);
 }
